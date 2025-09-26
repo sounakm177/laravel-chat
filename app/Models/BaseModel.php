@@ -12,9 +12,9 @@ abstract class BaseModel extends Model
     /**
      * Check if model has attribute
      */
-    public function hasAttribute(string $attribute): bool
+    public function hasAttribute($key): bool
     {
-        return array_key_exists($attribute, $this->attributes);
+        return array_key_exists($key, $this->attributes);
     }
 
     /**
