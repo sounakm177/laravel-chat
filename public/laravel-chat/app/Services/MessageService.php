@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-use App\Repositories\Interfaces\MessageRepositoryInterface;
-use App\Models\Message;
 use App\Exceptions\MessageDeliveryException;
+use App\Models\Message;
+use App\Repositories\Interfaces\MessageRepositoryInterface;
 
 class MessageService
 {
@@ -20,7 +20,7 @@ class MessageService
         try {
             return $this->messageRepository->create($data);
         } catch (\Exception $e) {
-            throw new MessageDeliveryException('Failed to deliver message: ' . $e->getMessage());
+            throw new MessageDeliveryException('Failed to deliver message: '.$e->getMessage());
         }
     }
 

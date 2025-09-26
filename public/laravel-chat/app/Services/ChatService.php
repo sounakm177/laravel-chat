@@ -4,8 +4,8 @@ Sure, here's the contents for the file /laravel-chat/laravel-chat/app/Services/C
 
 namespace App\Services;
 
-use App\Repositories\ChatRepositoryInterface;
 use App\Exceptions\ChatNotFoundException;
+use App\Repositories\ChatRepositoryInterface;
 
 class ChatService
 {
@@ -25,8 +25,8 @@ class ChatService
     {
         $chat = $this->chatRepository->find($id);
 
-        if (!$chat) {
-            throw new ChatNotFoundException("Chat not found.");
+        if (! $chat) {
+            throw new ChatNotFoundException('Chat not found.');
         }
 
         return $chat;

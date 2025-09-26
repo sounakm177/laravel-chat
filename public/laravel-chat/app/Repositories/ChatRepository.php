@@ -25,6 +25,7 @@ class ChatRepository implements ChatRepositoryInterface
     public function delete(int $id): bool
     {
         $chat = $this->findById($id);
+
         return $chat ? $chat->delete() : false;
     }
 }

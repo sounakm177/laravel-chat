@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use App\Models\Message;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Broadcast;
 use Tests\TestCase;
@@ -43,7 +43,7 @@ class MessageTest extends TestCase
         ]);
 
         $this->actingAs($user)
-            ->get('/api/messages?receiver_id=' . $receiver->id)
+            ->get('/api/messages?receiver_id='.$receiver->id)
             ->assertStatus(200)
             ->assertJsonFragment(['content' => 'Hello!']);
     }

@@ -5,9 +5,7 @@ Sure, here's the contents for the file /laravel-chat/laravel-chat/app/Events/Mes
 namespace App\Events;
 
 use App\Models\Message;
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -26,7 +24,7 @@ class MessageSent implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return new PrivateChannel('chat.' . $this->message->chat_id);
+        return new PrivateChannel('chat.'.$this->message->chat_id);
     }
 
     public function broadcastWith()

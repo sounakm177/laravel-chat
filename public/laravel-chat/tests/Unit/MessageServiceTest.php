@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use App\Services\MessageService;
 use App\Models\Message;
+use App\Services\MessageService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class MessageServiceTest extends TestCase
 {
@@ -16,7 +16,7 @@ class MessageServiceTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->messageService = new MessageService();
+        $this->messageService = new MessageService;
     }
 
     public function test_can_send_message()

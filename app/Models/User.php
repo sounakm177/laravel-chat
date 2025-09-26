@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends BaseAuthenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -44,29 +44,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function chats(): BelongsToMany
-    {
-        return $this->belongsToMany(Chat::class)
-            ->withPivot('last_read_at')
-            ->withTimestamps();
-    }
-
-    public function messages(): HasMany
-    {
-        return $this->hasMany(Message::class);
-    }
-
-    public function getUnreadMessagesCount(): int
-    {
-        return Message::whereHas('chat', function ($query) {
-            $query->whereHas('users', function ($q) {
-                $q->where('users.id', $this->id);
-            });
-        })
-        ->where('user_id', '!=', $this->id)
-        ->where('is_read', false)
-        ->count();
     }
 }

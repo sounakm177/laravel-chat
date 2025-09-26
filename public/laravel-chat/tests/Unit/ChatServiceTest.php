@@ -4,10 +4,10 @@ Sure, here's the contents for the file /laravel-chat/laravel-chat/tests/Unit/Cha
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use App\Services\ChatService;
-use App\Models\User;
 use App\Models\Chat;
+use App\Models\User;
+use App\Services\ChatService;
+use Tests\TestCase;
 
 class ChatServiceTest extends TestCase
 {
@@ -16,10 +16,10 @@ class ChatServiceTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->chatService = new ChatService();
+        $this->chatService = new ChatService;
     }
 
-    public function testCreateChat()
+    public function test_create_chat()
     {
         $user1 = User::factory()->create();
         $user2 = User::factory()->create();
@@ -31,7 +31,7 @@ class ChatServiceTest extends TestCase
         $this->assertEquals($user2->id, $chat->user2_id);
     }
 
-    public function testGetChat()
+    public function test_get_chat()
     {
         $chat = Chat::factory()->create();
 
@@ -40,7 +40,7 @@ class ChatServiceTest extends TestCase
         $this->assertEquals($chat->id, $fetchedChat->id);
     }
 
-    public function testChatNotFound()
+    public function test_chat_not_found()
     {
         $this->expectException(\App\Exceptions\ChatNotFoundException::class);
 

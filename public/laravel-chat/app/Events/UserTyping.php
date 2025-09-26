@@ -10,6 +10,7 @@ class UserTyping
     use Dispatchable, SerializesModels;
 
     public $userId;
+
     public $chatId;
 
     public function __construct($userId, $chatId)

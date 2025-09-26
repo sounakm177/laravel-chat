@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use App\Models\Chat;
 use App\Models\Message;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Broadcast;
 use Tests\TestCase;
@@ -32,7 +32,7 @@ class ChatTest extends TestCase
         $chat = Chat::factory()->create();
         $this->actingAs($user);
 
-        $response = $this->postJson('/api/chats/' . $chat->id . '/messages', [
+        $response = $this->postJson('/api/chats/'.$chat->id.'/messages', [
             'body' => 'Hello, World!',
         ]);
 
@@ -48,7 +48,7 @@ class ChatTest extends TestCase
 
         $this->actingAs($user);
 
-        $response = $this->getJson('/api/chats/' . $chat->id . '/messages');
+        $response = $this->getJson('/api/chats/'.$chat->id.'/messages');
 
         $response->assertStatus(200);
         $response->assertJsonFragment(['body' => $message->body]);

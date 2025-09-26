@@ -30,6 +30,7 @@ class MessageRepository implements MessageRepositoryInterface
         if ($message) {
             return $message->update($data);
         }
+
         return false;
     }
 
@@ -39,6 +40,7 @@ class MessageRepository implements MessageRepositoryInterface
         if ($message) {
             return $message->delete();
         }
+
         return false;
     }
 }
