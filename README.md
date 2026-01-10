@@ -235,7 +235,7 @@ This project is open-sourced software licensed under the [MIT license](https://o
 
 ## Credits
 
-- **Developer**: [Sounak Mukherjee](https://github.com/sounakm177)
+- **Developer**: [Sounak Mondal](https://github.com/sounakm177)
 - **Framework**: [Laravel](https://laravel.com)
 - **Real-Time**: [Pusher](https://pusher.com)
 
